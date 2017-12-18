@@ -8,13 +8,15 @@ var Pdf = (function() {
     Pdf.prototype.makePDF = function(list) {
         // create a document and pipe to a blob
         var doc = new PDFDocument({
-            'margin': 0
+            'margin': 0,
+            'autoFirstPage': false
         });
         var stream = doc.pipe(BlobStream());
 
         for (var i = 0; i < list.length; i++) {
+            var img = list[i].img;
             doc.addPage({
-                'size': [2550, 3501],
+                'size': [img.width, img.height],
                 'margin': 0
             });
             var image = list[i].base64;
