@@ -1,0 +1,17 @@
+{
+  "name": "img-merge-pdf",
+  "version": "1.0.0",
+  "description": "Merges multiple images into a single PDF on the client side",
+  "scripts": {
+    "build": "browserify src/scripts/* -o src/bundle.js",
+    "uglify": "browserify src/scripts/* | uglifyjs -c -m > src/bundle.js"
+  },
+  "author": "Dom Slee",
+  "license": "MIT",
+  "dependencies": {
+    "image-compressor": "^1.2.0",
+    "pdfkit": "^0.8.3",
+    "sortablejs": "^1.7.0",
+    "uglify": "^0.1.5"
+  }
+}
