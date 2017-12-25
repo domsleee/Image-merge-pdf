@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Merges multiple images into a single PDF on the client side",
   "scripts": {
-    "build": "browserify src/js/* -o src/js/bundle.js",
-    "uglify": "browserify src/js/* | uglifyjs -c -m > src/js/bundle.js"
+    "build": "browserify src/js/* -o dist/js/bundle.js",
+    "uglify": "browserify src/js/* | uglifyjs -c -m > dist/js/bundle.js"
   },
   "author": "Dom Slee",
   "license": "MIT",
