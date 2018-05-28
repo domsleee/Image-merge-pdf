@@ -1,3 +1,3 @@
-# Image-pdf
+# Image-to-pdf
 
-> Merges multiple images into a single PDF on the client side
+Merge images to PDF client side

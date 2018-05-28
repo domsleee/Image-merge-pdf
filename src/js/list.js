@@ -8,6 +8,7 @@ var List = (function() {
 
         var _this = this;
         this._sortable = new Sortable(el, {
+            // Element dragging ended
             onEnd: function(e) {
                 var l = _this._list;
                 var a = l[e.oldIndex];
@@ -25,7 +26,25 @@ var List = (function() {
             var li = document.createElement('li');
             li.innerText = nf.name;
             this._el.appendChild(li);
+
+            var _this = this;
+            li.addEventListener('click', function(e) { 
+                var target = e.target;
+                var curr = target;
+                var ind = 0;
+                while (curr = curr.previousSibling) ind++;
+                _this.remove(ind);
+                console.log(ind);
+            });
         }
+        this._hasChanged();
+    }
+    List.prototype.remove = function(i) {
+        $('#items li')[i].remove();
+        for (var j = i; j < this._list.length-1; j++) {
+            this._list[j] = this._list[j+1];
+        }
+        this._list.pop();
         this._hasChanged();
     }
     List.prototype._hasChanged = function() {
