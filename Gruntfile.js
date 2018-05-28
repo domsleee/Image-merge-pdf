@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     },
     shell: {
       deploy: {
-        command: "git add dist && git subtree push --prefix dist origin gh-pages"
+        command: './deploy.sh'
       }
     },
     watch: {
@@ -30,14 +30,10 @@ module.exports = function(grunt) {
       }
     }
   });
-
-    // Import required tasks
-    grunt.loadNpmTasks("grunt-browserify");
-    grunt.loadNpmTasks("grunt-contrib-cssmin");
-    grunt.loadNpmTasks("grunt-shell");
-    grunt.loadNpmTasks("grunt-contrib-watch");
-
-    // Set default task to do everything
-    grunt.registerTask("default", ["browserify", "cssmin"]);
-    grunt.registerTask("deploy", ["browserify", "cssmin", "shell"]);
-  };
+  grunt.loadNpmTasks("grunt-browserify");
+  grunt.loadNpmTasks("grunt-contrib-cssmin");
+  grunt.loadNpmTasks("grunt-shell");
+  grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.registerTask("default", ["browserify", "cssmin"]);
+  grunt.registerTask("deploy", ["browserify", "cssmin", "shell"]);
+};
